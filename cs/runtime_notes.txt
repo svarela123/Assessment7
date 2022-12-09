@@ -1,0 +1,23 @@
+extraLargeArray
+unshift function runtime: 1.1545087 s
+push function rutnime: 4.4069 ms
+
+largeArray
+unshift function runtime: 11.2714 ms
+push function rutnime: 889.8 μs
+
+mediumArray
+unshift function runtime: 317.9 μs
+push function rutnime: 206.1 μs
+
+smallArray
+unshift function runtime: 69.7 μs
+push function rutnime: 147.1 μs
+
+tinyArray
+unshift function runtime: 50.7 μs
+push function rutnime: 122.1 μs
+
+The pattern I saw is when array sizes are smaller, both functions form at a somewhat comparable speed. However, as the array size gets larger, the runtime of the function using .unshift becomes much larger than the runtime o fthe function using .push. The .push function scales better. I can tell because as I run larger and larger arrays through the functions, .push's runtime was smaller than .unshift's and the rate of their tims started increasing dramatically.
+
+The function that uses .unshift has a worse runtime complexity because for each new value inserted into the new array the function is creating, it has to shift all the numbers already in the array, which starts becoming a lof of operations as the array gets larger. The function that uses .push, for each new value inserted into the array, does the same amount of work for each new pushed value, regardless of the size of the array it is dealing with.
